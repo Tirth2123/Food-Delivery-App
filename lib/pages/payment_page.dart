@@ -38,7 +38,7 @@ class _PaymentPageState extends State<PaymentPage> {
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
-              child: const Text("Yes"),
+              child: const Text("No"),
             ),
             TextButton(
               onPressed: () {

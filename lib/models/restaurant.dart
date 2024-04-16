@@ -1,7 +1,7 @@
 import 'package:collection/collection.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:food_delivery_application/models/cart_item.dart';
-import 'package:intl/intl.dart';
 
 import 'food.dart';
 
@@ -550,24 +550,20 @@ class Restaurant extends ChangeNotifier {
 
   String displayCartReceipt() {
     final receipt = StringBuffer();
-    receipt.writeln("Here is your receipt.");
+    receipt.writeln("Here is your Bill.",);
     receipt.writeln();
 
-    String formattedDate = DateFormat("dd-mmm-yy hh-mm").format(DateTime.now());
-
-    receipt.writeln(formattedDate);
-    receipt.writeln();
-    receipt.writeln("----------");
-
+    receipt.writeln("--------------------------------------------");
     for (final cartItem in _cart) {
       receipt.writeln(
           "${cartItem.quantity} x ${cartItem.food.name} - ${_formatPrice(cartItem.food.price)}");
-      if(cartItem.selectedAddons.isEmpty){
-        receipt.writeln("Addons: ${_formatAddons(cartItem.selectedAddons)}");
+      if(cartItem.selectedAddons.isNotEmpty){
+        receipt.writeln();
+        receipt.writeln("Addons: \n\n${_formatAddons(cartItem.selectedAddons)}");
       }
       receipt.writeln();
     }
-    receipt.writeln("----------");
+    receipt.writeln("--------------------------------------------");
     receipt.writeln();
     receipt.writeln("Total Items: ${getTotalItemCount()}");
     receipt.writeln("Total Price: ${_formatPrice(getTotalPrice())}");
@@ -588,6 +584,6 @@ class Restaurant extends ChangeNotifier {
   String _formatAddons(List<Addon> addons) {
     return addons
         .map((addon) => "${addon.name} (${_formatPrice(addon.price)})")
-        .join(", ");
+        .join(", \n");
   }
 }

@@ -18,7 +18,7 @@ class MyReceipt extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text("Thank-You for Your Order"),
+            const Text("Thank You for Your Order"),
             const SizedBox(
               height: 25,
             ),
@@ -35,7 +35,7 @@ class MyReceipt extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 25,),
-            const Text("Estimated Delivery time is: 4:10 PM"),
+            const Text("Estimated Delivery time is: 40m"),
           ],
         ),
       ),

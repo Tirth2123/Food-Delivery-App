@@ -33,8 +33,11 @@ class _DeliveryProgressPageState extends State<DeliveryProgressPage> {
         foregroundColor: Theme.of(context).colorScheme.primary,
       ),
       bottomNavigationBar: _buildBottomNavBar(context),
-      body: const Column(
-        children: [MyReceipt()],
+      body: const SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          children: [MyReceipt()],
+        ),
       ),
     );
   }
